@@ -1,4 +1,7 @@
 node {
+  stage('Init'){
+      git branch: 'master', changelog: false, poll: false, url: 'https://github.com/martinparachu/seedjobtest.git'
+  }
 
   stage('Update stg from val'){
 
