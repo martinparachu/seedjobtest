@@ -27,8 +27,8 @@ node {
             ]
           ])
             {
-            sh 'chmod +x ${WORKSPACE}/update_stg.sh'
-            sh '${WORKSPACE}/update_stg.sh'
+            sh 'chmod +x ${WORKSPACE}/stg_update.sh'
+            sh '${WORKSPACE}/stg_update.sh'
             }
 	
     }
