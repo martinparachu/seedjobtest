@@ -22,6 +22,7 @@ else
     target_app_password=dev_app_password
     target_app_user=dev_app_user
 fi
+target_owner_comodin=${target}_owner_user
 
 echo source_server
 echo source_port
@@ -32,6 +33,7 @@ echo target_server
 echo target_port
 echo target_db
 echo target_owner_user
+echo target_owner_comodin
 echo target_app_user
 
  
