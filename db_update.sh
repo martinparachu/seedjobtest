@@ -3,26 +3,17 @@
 source_server=10.10.0.183
 source_port=5401
 source_db="mwl_intranet_${source}"
-if [ "$source" == "val" ]; then
-    source_owner_password=val_owner_password
-    source_owner_user=val_owner_user
-fi
+source_owner_password=${source}_owner_password
+source_owner_user=${source}_owner_user
 
 target_server=10.10.0.183
 target_port=5401
 target_db="mwl_intranet_${target}"
-if [ "$target" == "stg" ]; then
-    target_owner_password=stg_owner_password
-    target_owner_user=stg_owner_user
-    target_app_password=stg_app_password
-    target_app_user=stg_app_user
-else
-    target_owner_password=dev_owner_password
-    target_owner_user=dev_owner_user
-    target_app_password=dev_app_password
-    target_app_user=dev_app_user
-fi
-target_owner_comodin=${target}_owner_user
+target_owner_password=${target}_owner_password
+target_owner_user=${target}_owner_user
+target_app_password=${target}_app_password
+target_app_user=${target}_app_user
+
 
 echo $source_server
 echo $source_port
@@ -33,7 +24,6 @@ echo $target_server
 echo $target_port
 echo $target_db
 echo $target_owner_user
-echo $target_owner_comodin
 echo $target_app_user
 
  
