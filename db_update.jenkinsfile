@@ -12,20 +12,32 @@ node {
 			[
 			  $class: 'UsernamePasswordMultiBinding',
 			  credentialsId: "stg_userpass",
-			  usernameVariable: 'target_owner_user',
-			  passwordVariable: 'target_owner_password'
+			  usernameVariable: 'stg_owner_user',
+			  passwordVariable: 'stg_owner_password'
 			],
 			[
 			  $class: 'UsernamePasswordMultiBinding',
 			  credentialsId: "stg_app_userpass",
-			  usernameVariable: 'target_app_user',
-			  passwordVariable: 'target_app_password'
+			  usernameVariable: 'stg_app_user',
+			  passwordVariable: 'stg_app_password'
+			],
+			[
+			  $class: 'UsernamePasswordMultiBinding',
+			  credentialsId: "dev_userpass",
+			  usernameVariable: 'dev_owner_user',
+			  passwordVariable: 'dev_owner_password'
+			],
+			[
+			  $class: 'UsernamePasswordMultiBinding',
+			  credentialsId: "dev_app_userpass",
+			  usernameVariable: 'dev_app_user',
+			  passwordVariable: 'dev_app_password'
 			],
 			[            
 			  $class: 'UsernamePasswordMultiBinding',
 			  credentialsId: "val_userpass",
-			  usernameVariable: 'source_owner_user',
-			  passwordVariable: 'source_owner_password'
+			  usernameVariable: 'val_owner_user',
+			  passwordVariable: 'val_owner_password'
 			]
 		      ])
 			{
