@@ -2,9 +2,9 @@
 
 source_server=10.10.0.183
 source_port=5401
-source_db="mwl_intranet_$source"
+source_db=mwl_intranet_${source}
 source_owner_password=${source}_owner_password
-source_owner_user="${source}_owner_user"
+source_owner_user=${source}_owner_user
 
 target_server=10.10.0.183
 target_port=5401
@@ -21,7 +21,7 @@ varname=a_${year}
 echo ${!varname}
 
 varname2=${source}_owner_user
-echo ${!varname2}
+echo ${!source_owner_user}
 
 
 echo $source_server
@@ -37,9 +37,9 @@ echo $target_owner_user
 echo $target_app_user
 
  
-export PGPASSWORD=$source_owner_password
+export PGPASSWORD=${!source_owner_password}
 
-#pg_dump -h $source_server -p $source_port -U $source_owner_user --no-owner --no-privileges --no-acl -n 'audit' --schema-only -Ft -b -v -f source_dump_audit.tar $source_db
+pg_dump -h $source_server -p $source_port -U ${!source_owner_user} --no-owner --no-privileges --no-acl -n 'audit' --schema-only -Ft -b -v -f source_dump_audit.tar $source_db
 
 export PGPASSWORD=$target_owner_password
 
