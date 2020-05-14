@@ -2,9 +2,9 @@
 
 source_server=10.10.0.183
 source_port=5401
-source_db="mwl_intranet_${source}"
+source_db="mwl_intranet_$source"
 source_owner_password=${source}_owner_password
-source_owner_user=${${source}_owner_user}
+source_owner_user=$source_owner_user
 
 target_server=10.10.0.183
 target_port=5401
@@ -18,6 +18,7 @@ target_app_user=${target}_app_user
 echo $source_server
 echo $source_port
 echo $source_db
+echo "${!source_owner_user}"
 echo $source_owner_user
 
 echo $target_server
