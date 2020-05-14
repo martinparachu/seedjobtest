@@ -14,6 +14,15 @@ target_owner_user=${target}_owner_user
 target_app_password=${target}_app_password
 target_app_user=${target}_app_user
 
+echo "test -----------------------"
+a_2014='hello 2014'
+year=2014
+varname=a_${year}
+echo ${!varname}
+
+varname2=${source}_owner_user
+echo ${!varname2}
+
 
 echo $source_server
 echo $source_port
