@@ -1,7 +1,7 @@
 node {
 	if (params.run_update == true){  
-    
-  		stage('Init'){
+ 
+ 		stage('Init'){
       			git branch: 'master', changelog: false, poll: false, url: 'https://github.com/martinparachu/seedjobtest.git'
   		}
      
