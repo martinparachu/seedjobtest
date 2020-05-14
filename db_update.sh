@@ -24,17 +24,17 @@ else
 fi
 target_owner_comodin=${target}_owner_user
 
-echo source_server
-echo source_port
-echo source_db
-echo source_owner_user
+echo $source_server
+echo $source_port
+echo $source_db
+echo $source_owner_user
 
-echo target_server
-echo target_port
-echo target_db
-echo target_owner_user
-echo target_owner_comodin
-echo target_app_user
+echo $target_server
+echo $target_port
+echo $target_db
+echo $target_owner_user
+echo $target_owner_comodin
+echo $target_app_user
 
  
 export PGPASSWORD=$source_owner_password
