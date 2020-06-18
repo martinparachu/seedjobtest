@@ -19,8 +19,8 @@ public_schema=public
 
 export PGPASSWORD=${!source_owner_password}
 
-echo pg_dump -h $source_server -p $source_port -U ${!source_owner_user} --no-owner --no-privileges --no-acl -n $review_schema -T 'review."ReviewRule"' -T 'review."UserConfig"' -T 'review."Shortcut"' -F p -Ft -b -v -f rr_source_review_dump.tar $source_db
-echo pg_dump -h $source_server -p $source_port -U ${!source_owner_user} --no-owner --no-privileges --no-acl -n $public_schema -F p -Ft -b -v -f rr_source_public_dump.tar $source_db
+pg_dump -h $source_server -p $source_port -U ${!source_owner_user} --no-owner --no-privileges --no-acl -n $review_schema -T 'review."ReviewRule"' -T 'review."UserConfig"' -T 'review."Shortcut"' -F p -Ft -b -v -f rr_source_review_dump.tar $source_db
+pg_dump -h $source_server -p $source_port -U ${!source_owner_user} --no-owner --no-privileges --no-acl -n $public_schema -F p -Ft -b -v -f rr_source_public_dump.tar $source_db
 
 
 
