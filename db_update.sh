@@ -7,7 +7,7 @@ source_owner_user=stg_rr_owner_user
 source_owner_password=stg_rr_owner_password
 
 target_server=localhost
-target_port=5432
+target_port=15432
 target_db=mwl_rr_${target}
 target_owner_password=${target}_rr_owner_password
 target_owner_user=${target}_rr_owner_user
