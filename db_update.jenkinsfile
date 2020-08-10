@@ -14,6 +14,12 @@ node {
 			  credentialsId: "stg_rr_userpass",
 			  usernameVariable: 'stg_rr_owner_user',
 			  passwordVariable: 'stg_rr_owner_password'
+			],
+			[
+			  $class: 'UsernamePasswordMultiBinding',
+			  credentialsId: "val_rr_userpass",
+			  usernameVariable: 'val_rr_owner_user',
+			  passwordVariable: 'val_rr_owner_password'
 			]
 		      ])
 			{
