@@ -1,6 +1,6 @@
 pipelineJob("db_update") {
   parameters {
-    choiceParam('target', ["stg"], 'Target Database' )
+    choiceParam('target', ["stg", "val"], 'Target Database' )
     booleanParam('run_update', false, 'Check if you really want to proceed')
   }
 
