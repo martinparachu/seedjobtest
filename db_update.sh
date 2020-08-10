@@ -18,24 +18,24 @@ public_schema=public
 
 export PGPASSWORD=${!source_owner_password}
 
-pg_dump -h $source_server -p $source_port -U ${!source_owner_user} --no-owner --no-privileges --no-acl -n $review_schema -T 'review."ReviewRule"' -T 'review."UserConfig"' -T 'review."Shortcut"' -F p -Ft -b -v -f rr_source_review_dump.tar $source_db
-pg_dump -h $source_server -p $source_port -U ${!source_owner_user} --no-owner --no-privileges --no-acl -n $public_schema -F p -Ft -b -v -f rr_source_public_dump.tar $source_db
+echo pg_dump -h $source_server -p $source_port -U ${!source_owner_user} --no-owner --no-privileges --no-acl -n $review_schema -T 'review."ReviewRule"' -T 'review."UserConfig"' -T 'review."Shortcut"' -F p -Ft -b -v -f rr_source_review_dump.tar $source_db
+echo pg_dump -h $source_server -p $source_port -U ${!source_owner_user} --no-owner --no-privileges --no-acl -n $public_schema -F p -Ft -b -v -f rr_source_public_dump.tar $source_db
 
 export PGPASSWORD=${!target_owner_password}
 
-psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."LastActivity"'
-psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."MehlichOriginalResult"'
-psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."SampleComment"'
-psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."SampleHistory"'
-psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."SampleOriginalResult"'
-psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."SampleReRunReview"'
-psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."Test"'
-psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."WaterSolubleOriginalResult"'
+echo psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."LastActivity"'
+echo psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."MehlichOriginalResult"'
+echo psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."SampleComment"'
+echo psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."SampleHistory"'
+echo psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."SampleOriginalResult"'
+echo psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."SampleReRunReview"'
+echo psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."Test"'
+echo psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS review."WaterSolubleOriginalResult"'
 
-psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS public."__DbDeploy"'
+echo psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c 'DROP TABLE IF EXISTS public."__DbDeploy"'
 
-pg_restore -U ${!target_owner_user} --no-owner --role=${!target_owner_user} -n $review_schema -Ft -v -h $target_server -p $target_port -d $target_db rr_source_review_dump.tar
-pg_restore -U ${!target_owner_user} --no-owner --role=${!target_owner_user} -n $public_schema -Ft -v -h $target_server -p $target_port -d $target_db rr_source_public_dump.tar
+echo pg_restore -U ${!target_owner_user} --no-owner --role=${!target_owner_user} -n $review_schema -Ft -v -h $target_server -p $target_port -d $target_db rr_source_review_dump.tar
+echo pg_restore -U ${!target_owner_user} --no-owner --role=${!target_owner_user} -n $public_schema -Ft -v -h $target_server -p $target_port -d $target_db rr_source_public_dump.tar
 
-psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA $review_schema TO $target_app_user;"
-psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c "GRANT USAGE ON SCHEMA $review_schema TO $target_app_user;"
+echo psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA $review_schema TO $target_app_user;"
+echo psql -h $target_server -p $target_port -U ${!target_owner_user} -d $target_db -c "GRANT USAGE ON SCHEMA $review_schema TO $target_app_user;"
