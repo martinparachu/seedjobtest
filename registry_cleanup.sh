@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo "arranca"
+echo ${Registry}
 
 REPO=localhost:5000
 KEEPTAG=3
