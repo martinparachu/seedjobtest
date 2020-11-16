@@ -5,6 +5,8 @@ REPO=localhost:5000
 KEEPTAG=3
 SKIPTAG=( development staging validation )
 
+curl -s http://${REPO}/v2/_catalog
+
 CheckTag(){
     Name=$1
     Tag=$2
