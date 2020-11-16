@@ -1,5 +1,5 @@
 #!/bin/bash
-echo ${Registry}
+echo $1
 
 REPO=localhost:5000
 KEEPTAG=3
