@@ -1,11 +1,10 @@
 #!/bin/bash
-echo $1
 
-REPO=localhost:5000
+REPO=$1
 KEEPTAG=3
 SKIPTAG=( development staging validation )
 
-curl -s http://${REPO}/v2/_catalog
+echo "curl -s http://${REPO}/v2/_catalog"
 
 CheckTag(){
     Name=$1
