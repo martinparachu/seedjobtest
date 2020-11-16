@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 echo ${Registry}
 
 REPO=localhost:5000
