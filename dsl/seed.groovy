@@ -1,3 +1,4 @@
+/*
 def createDeploymentJob(jobName, repoUrl) {
     pipelineJob(jobName) {
         definition {
@@ -18,6 +19,7 @@ def createDeploymentJob(jobName, repoUrl) {
         }
     }
 }
+*/
 
 def createTestJob(jobName, repoUrl) {
     multibranchPipelineJob(jobName) {
@@ -40,7 +42,7 @@ def buildPipelineJobs() {
     def deployName = jobName + "_deploy"
     def testName = jobName + "_test"
 
-    createDeploymentJob(deployName, repoUrl)
+    //createDeploymentJob(deployName, repoUrl)
     createTestJob(testName, repoUrl)
 }
 
